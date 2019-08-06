@@ -1,0 +1,20 @@
+java signal.SignalSendRequest -i file:/C:/JNDI-Directory -c jms.MQ10 -d jms.TEST.QL01 -v user001
+java signal.SignalSendRequest -i file:/C:/JNDI-Directory -c jms.MQ01WIN -d jms.TEST.APPQ -v user001
+
+java signal.SignalSendRequest -i file:/C:/JNDI-Directory -c jms.MQ34 -d jms.TEST.AMS.QL01 -v user001
+
+java guide.GuideRcvSample7   -i file:/C:/JNDI-Directory -c jms.MQ34 -d jms.TEST.AMS.QL01 -v user001
+
+java -DMQS_KEYSTORE_CONF="d:\$work\ams\keystoreB.conf" JmsJndiConsumer -i file:/C:/JNDI-Directory -c jms.MQ34 -d jms.TEST.AMS.QL02B 
+java JmsJndiProducer -i file:/C:/JNDI-Directory -c jms.MQ34 -d jms.TEST.AMS.QL01 
+
+java demo.ConnAuthSample -i file:/C:/JNDI-Directory -c jms.MQ33 -d jms.TEST.QL01 -u WBI33 -p K0PLEX
+
+SET CHLAUTH('*') TYPE(BLOCKUSER) ADDRESS(*) USERLIST('alice')
+
+SET CHLAUTH('TEST.*') TYPE(USERMAP) CLNTUSER('AMR') USERSRC(CHANNEL) ADDRESS('*') ACTION(ADD) 
+
+SET CHLAUTH('*') TYPE(USERMAP) CLNTUSER('amr') USERSRC(CHANNEL) ADDRESS('*') ACTION(ADD) 
+
+SET CHLAUTH('TEST.*') TYPE(USERMAP) CLNTUSER('clientusr') USERSRC(NOACCESS) ADDRESS('*') WARN(NO) ACTION(ADD) 
+
