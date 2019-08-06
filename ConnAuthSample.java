@@ -59,7 +59,7 @@ import com.ibm.mq.*;
  * 
  * for example:
  * 
- * java demo.ConnAuthSample -i file:/C:/$Data/JNDI-Directory -c jms.MQ33 -d jms.TEST.QL01 -u WBI33 -p K0PLEX
+ * java demo.ConnAuthSample -i file:/C:/$Data/JMSContext -c jms.QMCI -d jms.DEMO.REPLY -u WBI33 -p K0PLEX
  */
 public class ConnAuthSample {
 
@@ -70,7 +70,7 @@ public class ConnAuthSample {
   private static String Password; 
 
 
-  private static String destinationReplyQ = "jms.TEST.REPLY";
+  private static String destinationReplyQ = "jms.DEMO.REPLY";
 
 
   // System exit status value (assume unset value to be 1)
